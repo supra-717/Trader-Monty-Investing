@@ -91,6 +91,7 @@ Claude Trading Skillsの全スキルをカテゴリ別に紹介します。各�
 | スキル | 説明 | API要件 |
 |--------|------|---------|
 | **Portfolio Manager** | Alpaca MCP Serverでリアルタイム保有データを取得。資産配分、リスク指標、HOLD/ADD/TRIM/SELL推奨を生成 | <span class="badge badge-api">Alpaca必須</span> |
+| **[Portfolio Review]({{ '/ja/skills/portfolio-review/' | relative_url }})** | DeGiroスイングトレーダー向け14ルール取引システムを使った完全なポートフォリオレビュー。スクリーンショットやCSVから動作。市場レジーム、ポジションダッシュボード、EUR建て新規エントリースキャン、優先アクション、ヘルススコアを提供 | <span class="badge badge-free">API不要</span> |
 | **[Trader Memory Core]({{ '/ja/skills/trader-memory-core/' | relative_url }})** | 投資仮説のライフサイクルを永続追跡。スクリーナー出力をIDEAとして登録し、ENTRY_READY→ACTIVE→CLOSEDのステート遷移、ポジションサイジング付与、レビュースケジュール、MAE/MFE付きポストモーテム生成をサポート | <span class="badge badge-optional">FMP任意</span> |
 | **[Position Sizer]({{ '/ja/skills/position-sizer/' | relative_url }})** | Fixed Fractional、ATRベース、Kelly Criterionの3手法でリスクベースポジションサイズを計算 | <span class="badge badge-free">API不要</span> |
 | **[Exposure Coach]({{ '/ja/skills/exposure-coach/' | relative_url }})** | ブレッド、レジーム、トップリスク、フローの各スキル出力を統合し、エクスポージャー上限（0-100%）、グロース/バリュー傾斜、NEW_ENTRY_ALLOWED / REDUCE_ONLY / CASH_PRIORITY推奨を含むマーケットポスチャーサマリーを生成 | <span class="badge badge-optional">FMP任意</span> |
@@ -204,6 +205,7 @@ Claude Trading Skillsの全スキルをカテゴリ別に紹介します。各�
 | Macro Regime Detector | 必須 | - | - |
 | Options Strategy Advisor | 任意 | - | - |
 | Portfolio Manager | - | - | 必須 |
+| Portfolio Review | - | - | - |
 | Trader Memory Core | 任意 | - | - |
 | Earnings Calendar | 必須 | - | - |
 | Economic Calendar Fetcher | 必須 | - | - |

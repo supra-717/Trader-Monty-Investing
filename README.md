@@ -159,6 +159,13 @@ Curated Claude skills for equity investors and traders. Each skill bundles promp
   - Supports model portfolios (Conservative/Moderate/Growth/Aggressive) for benchmark comparison.
   - Requires Alpaca brokerage account (paper or live) and configured Alpaca MCP Server; manual data entry also supported.
 
+- **Portfolio Review** (`portfolio-review`)
+  - Full DeGiro swing-trader portfolio review using a 14-rule trading system — no broker API required.
+  - Works from screenshots, CSV paste, or manual position data from any broker.
+  - 7-step review: market regime → catalysts → position dashboard (with all 14 rules applied) → EUR opportunity scan → priority actions → portfolio health score.
+  - EUR-only new entry enforcement (Rule R11): all new buys via Tradegate Core ETFs or European exchanges.
+  - Tables-only output with exact trade instructions (entry, stop, target, size, R/R ratio).
+
 - **Position Sizer** (`position-sizer`)
   - Calculates risk-based position sizes for long stock trades using Fixed Fractional, ATR-based, and Kelly Criterion methods.
   - Applies portfolio constraints (max position %, max sector %) and identifies binding constraints.
@@ -232,6 +239,13 @@ Curated Claude skills for equity investors and traders. Each skill bundles promp
   - Supports batch processing of matured signals (5-day and 20-day holding periods) and manual outcome recording.
   - Aggregate statistics by skill, ticker, and time period for periodic signal quality audits.
   - FMP API key optional (for fetching realized returns; manual price entry also supported).
+
+- **Portfolio Review** (`portfolio-review`)
+  - Full DeGiro swing-trader portfolio review enforcing 14 hard rules on every position — no broker API required.
+  - Works from screenshots, CSV paste, or manual data from any broker (DEGIRO, Interactive Brokers, etc.).
+  - 7-step review: market regime → catalysts → position dashboard → EUR opportunity scan → priority actions → health score.
+  - Enforces EUR-only new entries (Rule R11): US/Asia theses via Tradegate Core ETFs (€1 flat fee).
+  - Tables-only output with exact trade instructions, stops, targets, and R/R ratios.
 
 ### Market Timing & Bottom Detection
 
@@ -575,6 +589,7 @@ Several skills require API keys for data access:
 | **Pair Trade Screener** | ✅ Required | ❌ Not used | ❌ Not used | Statistical arbitrage analysis |
 | **Options Strategy Advisor** | 🟡 Optional | ❌ Not used | ❌ Not used | FMP for stock data; theoretical pricing works without |
 | **Portfolio Manager** | ❌ Not used | ❌ Not used | ✅ Required | Real-time holdings via Alpaca MCP |
+| **Portfolio Review** | ❌ Not used | ❌ Not used | ❌ Not used | Works from screenshots/CSV; no broker API needed |
 | **CANSLIM Stock Screener** | ✅ Required | ❌ Not used | ❌ Not used | Phase 2 (6 components); free tier sufficient; Finviz web scraping for institutional data |
 | **VCP Screener** | ✅ Required | ❌ Not used | ❌ Not used | Stage 2 + VCP pattern screening; free tier sufficient |
 | **FTD Detector** | ✅ Required | ❌ Not used | ❌ Not used | Index price data for rally/FTD detection |

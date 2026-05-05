@@ -54,6 +54,7 @@ Hand-written guides (marked with ★) follow a detailed 10-section structure. Au
 | [Pair Trade Screener]({{ '/en/skills/pair-trade-screener/' | relative_url }}) | Statistical arbitrage tool for identifying and analyzing pair trading opportunities | <span class="badge badge-api">FMP Required</span> |
 | [PEAD Screener]({{ '/en/skills/pead-screener/' | relative_url }}) | Screen post-earnings gap-up stocks for PEAD (Post-Earnings Announcement Drift) patterns | <span class="badge badge-api">FMP Required</span> |
 | [Portfolio Manager]({{ '/en/skills/portfolio-manager/' | relative_url }}) | Comprehensive portfolio analysis using Alpaca MCP Server integration to fetch holdings and positions, then analyze as... | <span class="badge badge-api">Alpaca Required</span> |
+| [Portfolio Review]({{ '/en/skills/portfolio-review/' | relative_url }}) | Run a full DeGiro swing-trader portfolio review using the 14-rule trading system. Works from screenshots or CSV — no... | <span class="badge badge-free">No API</span> |
 | [Position Sizer]({{ '/en/skills/position-sizer/' | relative_url }}) ★ | Calculate risk-based position sizes for long stock trades | <span class="badge badge-free">No API</span> |
 | [Scenario Analyzer]({{ '/en/skills/scenario-analyzer/' | relative_url }}) | ニュースヘッドラインを入力として18ヶ月シナリオを分析するスキル。
 scenario-analystエージェントで主分析を実行し、

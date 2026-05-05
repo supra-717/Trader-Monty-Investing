@@ -139,6 +139,12 @@ English README is available at [`README.md`](README.md).
   - HOLD/ADD/TRIM/SELLのポジションレベル推奨とリバランス計画を生成。
   - Alpaca証券口座（ペーパーまたはライブ）とAlpaca MCP Serverの設定が必要。
 
+- **ポートフォリオレビュー** (`portfolio-review`)
+  - DeGiroスイングトレーダー向け14ルール取引システムを使った完全なポートフォリオレビュー。ブローカーAPI不要。
+  - スクリーンショット、CSVペースト、手動入力など任意のブローカーのデータから動作。
+  - 7ステップレビュー: 市場レジーム→今週の触媒→ポジションダッシュボード（14ルール全適用）→EUR建て新規エントリースキャン→優先アクション→ポートフォリオヘルススコア。
+  - テーブルのみ出力でエントリー・ストップ・目標・サイズ・リスクリワード比を含む具体的な売買指示を提供。
+
 - **ポジションサイザー** (`position-sizer`)
   - Fixed Fractional、ATRベース、Kelly Criterionの3手法でロング株式トレードのリスクベースポジションサイズを計算。
   - ポートフォリオ制約（最大ポジション%、最大セクター%）を適用し、最も厳しい制約（binding constraint）を特定。
@@ -513,6 +519,7 @@ launchctl start com.trade-analysis.skill-generation-daily
 - **Trader Memory Core** (`trader-memory-core`): 🟡 オプション — FMPはポストモーテムのMAE/MFEのみ使用。コア機能はオフラインで動作
 - **エクスポージャーコーチ** (`exposure-coach`): 🟡 オプション — FMPはinstitutional-flow-trackerデータ利用時のみ必要
 - **シグナルポストモーテム** (`signal-postmortem`): 🟡 オプション — FMPは実現リターン取得用。手動価格入力にも対応
+- **ポートフォリオレビュー** (`portfolio-review`): APIキー不要 — スクリーンショットやCSVから動作。任意のブローカーに対応
 
 ## 参考リンク
 - Claude Skillsローンチ概要: https://www.anthropic.com/news/skills
