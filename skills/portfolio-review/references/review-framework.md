@@ -66,10 +66,12 @@ Binary events trigger R12 consideration (may recommend REDUCE before event if ex
 
 Header: `## Position Dashboard`
 
+**Pricing:** Use the price from the user's screenshot as the current price (R15). Do not substitute another source for held positions.
+
 ```
-| # | Symbol | Qty | Entry € | Now € | P&L € | P&L % | Action    | Conf | Stop € | Target € | Reason         |
-|---|--------|-----|---------|-------|-------|-------|-----------|------|--------|----------|----------------|
-| 1 |        |     |         |       |       |       | HOLD/ADD… | H/M/L|       |          |                |
+| # | Symbol | Qty | Entry € | Now € | P&L € | P&L % | Action    | Conf  | Stop € | Target € | Thesis Status | Reason         |
+|---|--------|-----|---------|-------|-------|-------|-----------|-------|--------|----------|---------------|----------------|
+| 1 |        |     |         |       |       |       | HOLD/ADD… | H/M/L |        |          | INTACT        |                |
 ```
 
 Followed by footnotes:
@@ -79,11 +81,17 @@ Followed by footnotes:
 
 Action codes:
 - `HOLD` — thesis intact, no change
-- `ADD` — increase position (only if rules permit)
+- `ADD` — increase position (only if rules permit and R16 real-money check passes)
 - `REDUCE` — trim position size
-- `EXIT` — close position
+- `EXIT` — close position (only if R17 conditions met: stop hit, thesis broken, or binary event risk)
 - `STOP-HIT` — stop loss triggered, exit immediately
 - `WATCH` — monitor closely, no action yet
+
+Thesis Status codes (replaces "Days Left" — there is no time-based exit):
+- `INTACT` — original thesis still valid, catalyst not yet played out
+- `WEAKENING` — one or more thesis conditions deteriorating but not yet broken
+- `BROKEN` — the reason for holding no longer exists → EXIT justified
+- `BINARY EVENT` — earnings/FDA/macro event within 5 days → assess risk per R12
 
 ## Step 4 — EUR Opportunity Scan
 
@@ -91,6 +99,10 @@ Header: `## EUR Opportunity Scan`
 
 Scan sequence: European large caps → Tradegate Core ETFs → Asia via EUR ETFs.
 All entries EUR-denominated (R11). Size at 1% account risk.
+
+**Pricing requirement (R15):** Before writing any row, WebSearch the current EUR price for that instrument on the stated exchange. Include the verification inline: `(verified €X.XX, [source])`. If the price cannot be confirmed, write `[verify price]` — do not populate entry/stop/target.
+
+**Real money check (R16):** Only include setups you would personally enter with your own savings at the current price and size. Remove or downgrade to WATCH any setup where conviction is not genuinely high.
 
 ```
 | Symbol | Exchange    | Entry € | Stop € | Target € | Size € | R/R | Catalyst        |
@@ -138,10 +150,37 @@ Scoring:
 - -1 per position missing a hard stop
 - -1 if any position down >7% with no stop and no EXIT recommended
 
+## Step 7 — Proactive Intelligence
+
+Header: `## Proactive Intelligence`
+
+Apply genuine judgment beyond rules. Flag anything important the user has not explicitly asked about.
+
+**Blind spots:**
+```
+| Issue | Position(s) | Severity | Suggested action |
+|-------|-------------|----------|-----------------|
+```
+Look for: oversized positions, sector overconcentration (>40% in one sector), a thesis catalyst that has already passed with no reassessment, positions where the original entry reason is no longer valid.
+
+**Macro risks (up to 3):**
+List specific macro factors that could hurt this portfolio over the next 2–4 weeks. State factual basis. Skip if nothing material.
+
+**Ideas radar (up to 2):**
+```
+| Symbol | Exchange | Why interesting | Status |
+|--------|----------|-----------------|--------|
+```
+These are not BUY recommendations. They are setups worth monitoring based on current conditions.
+
+If nothing to flag: `No additional flags — portfolio appears aligned with current conditions.`
+
+---
+
 ## Output Standards
 
 - Header: `# Portfolio Review — YYYY-MM-DD`
 - Tables only — no prose paragraphs between sections
 - EUR values for all positions; USD only for legacy grandfathered holdings (label clearly)
-- Write `[check manually]` if a price cannot be fetched — never guess
+- Write `[verify price]` if a price cannot be confirmed — never guess
 - Maximum 2% portfolio risk on any single trade

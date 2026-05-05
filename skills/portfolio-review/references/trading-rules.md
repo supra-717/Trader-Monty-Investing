@@ -20,6 +20,9 @@ These rules override all general analysis. Check every rule before every recomme
 | R12 | No forced loss exits | Do NOT recommend selling at a loss unless: (a) hard stop explicitly hit, OR (b) binary catalyst (earnings/FDA) within 5 trading days AND position risk >1.5% portfolio, OR (c) thesis fundamentally reversed. Present risk as information, not instruction | Apply before any EXIT on losing position |
 | R13 | Continuity check | Before generating recommendations, check previous advice. If no stop hit and no new contradicting catalyst → default to HOLD. State: "No change from yesterday — thesis intact" | Run as first step every session |
 | R14 | Overlooked factor scan | For each major recommendation, include one non-consensus angle: cross-asset signals, rotation nuances, macro-micro disconnects, positioning extremes. Only include if factual basis exists. Label: `⚠️ Overlooked:` | Add to each position row |
+| R15 | Pricing accuracy | For held positions: use the price from the user's screenshot — it is the authoritative current price. For any newly recommended stock: WebSearch the current EUR price on the target exchange before quoting it. Write `[verify price]` if it cannot be confirmed. Never guess a price. | Every new entry recommendation; never override screenshot prices for held positions |
+| R16 | Real money standard | Before recommending any BUY or ADD, ask: would you personally put your own savings into this right now? If the honest answer is no — because the setup is weak, the timing is wrong, or conviction is low — do not recommend it. A loss is a real setback, not an abstraction. Flag low-conviction entries with Conf: L and a warning. | Every BUY / ADD recommendation |
+| R17 | Thesis-driven exits only | There is no hard time limit on any trade. Do not suggest an exit because X days have passed or because the position is up. Exit only when: (a) the hard stop is hit, (b) the original thesis is fundamentally broken (catalyst passed, sector rotation reversed, fundamental deterioration), or (c) a binary event creates unacceptable risk. "Thesis Status" replaces "Days Left" in the dashboard. | Every HOLD / REDUCE / EXIT assignment |
 
 ## Quick Violation Checklist
 
@@ -36,6 +39,10 @@ Before finalising any recommendation, confirm none of these apply:
 - [ ] R9: Recommending leveraged ETF re-entry within 30-day lockout window?
 - [ ] R11: Recommending any new USD-denominated position?
 - [ ] R12: Recommending EXIT on losing position without stop hit, binary event, or thesis reversal?
+- [ ] R15: Quoting a price for a new recommendation that has not been verified via WebSearch?
+- [ ] R15: Using a different price source for held positions instead of the user's screenshot?
+- [ ] R16: Recommending a BUY/ADD where honest conviction is low — would you use your own money here?
+- [ ] R17: Suggesting an exit purely because time has passed or position is up, without thesis breaking?
 
 ## Behavioral Patterns to Avoid (from historical trade analysis)
 
