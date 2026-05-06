@@ -150,6 +150,8 @@ Minimum R/R: 2:1. Skip any setup with R/R < 2:1.
 
 **Real money check (R16):** Before including any row, ask: is this a setup you would personally enter with your own money at this exact price and size? If not, remove it or downgrade to WATCH.
 
+**EUR availability assumption:** Do NOT assume any stock is unavailable in EUR or block it under R11 based on its home currency. Most US, Asian, and global stocks are tradeable in EUR on Tradegate, Xetra, or Euronext. If unsure whether a stock the user has named is available in EUR, ask the user before filtering it out — never silently exclude it.
+
 ### Step 5 — Priority Actions
 
 List the top 5 actions numbered by urgency. Give exact instructions (e.g., "Sell 4 of 10 MSFT at market open on Tradegate").

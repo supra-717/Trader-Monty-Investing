@@ -16,7 +16,7 @@ These rules override all general analysis. Check every rule before every recomme
 | R8 | Single entry per trade | Do not recommend adding to a position in multiple tranches same day. Size correctly from start (1–2% risk max) | Flag if user averages intraday |
 | R9 | Leveraged re-entry lockout | After selling 2X/3X ETF at profit → no re-entry for 30 days unless: index above 50-day MA + VIX below 18 + no pending macro shock | Track last leveraged exit date |
 | R10 | ASML pattern | ASML is the trader's most consistent winner. Always check ASML in European scan. Entry at support, 5–10 day hold, exit at resistance. Size: 4–5 units (€4,500–€6,000) | Include in every European scan |
-| R11 | EUR-only new entries | All new BUY recommendations must be EUR-denominated instruments. For US/Asia theses → use EUR ETFs on Tradegate. Existing USD holdings grandfathered — manage but don't add to | Apply to ALL new entry recommendations |
+| R11 | EUR-only new entries | All new BUY recommendations must be EUR-denominated instruments. Most US/Asia stocks trade in EUR on Tradegate or Xetra — do NOT assume a stock is unavailable in EUR without confirming with the user first. Existing USD holdings grandfathered — manage but don't add to | Apply to ALL new entry recommendations; ask before filtering any stock as USD-only |
 | R12 | No forced loss exits | Do NOT recommend selling at a loss unless: (a) hard stop explicitly hit, OR (b) binary catalyst (earnings/FDA) within 5 trading days AND position risk >1.5% portfolio, OR (c) thesis fundamentally reversed. Present risk as information, not instruction | Apply before any EXIT on losing position |
 | R13 | Continuity check | Before generating recommendations, check previous advice. If no stop hit and no new contradicting catalyst → default to HOLD. State: "No change from yesterday — thesis intact" | Run as first step every session |
 | R14 | Overlooked factor scan | For each major recommendation, include one non-consensus angle: cross-asset signals, rotation nuances, macro-micro disconnects, positioning extremes. Only include if factual basis exists. Label: `⚠️ Overlooked:` | Add to each position row |
@@ -37,7 +37,7 @@ Before finalising any recommendation, confirm none of these apply:
 - [ ] R7: Cash + margin >40% of portfolio in RISK-ON and no new entries recommended?
 - [ ] R8: Recommending multiple partial buys of same stock same day?
 - [ ] R9: Recommending leveraged ETF re-entry within 30-day lockout window?
-- [ ] R11: Recommending any new USD-denominated position?
+- [ ] R11: Recommending any new USD-denominated position? (But: did you confirm with user that the stock isn't available in EUR on Tradegate/Xetra before blocking it?)
 - [ ] R12: Recommending EXIT on losing position without stop hit, binary event, or thesis reversal?
 - [ ] R15: Quoting a price for a new recommendation that has not been verified via WebSearch?
 - [ ] R15: Using a different price source for held positions instead of the user's screenshot?
